@@ -3,6 +3,10 @@
 # Recipe:: default
 #
 
+ey_cloud_report "nginx" do
+  message "logrotate for nginx"
+end
+
 remote_file "/etc/logrotate.d/nginx" do
   source "nginx.logrotate"
   owner "root"
