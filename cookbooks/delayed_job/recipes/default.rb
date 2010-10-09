@@ -10,6 +10,7 @@ if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:na
       message "configuring delayed_job"
     end
 
+    # http://community.engineyard.com/discussions/problems/1485-delayed_job-worker-not-starting-permission-denied
     file "/data/#{app_name}/current/script/runner" do
       owner node[:owner_name]
       group node[:owner_name]
