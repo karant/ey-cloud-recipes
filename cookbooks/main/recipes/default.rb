@@ -55,7 +55,7 @@ require_recipe "delayed_job"
 #uncomment to run the redis recipe
 #require_recipe "redis"
 
-require_recipe "logrotate"
+#require_recipe "logrotate"
 #
 #uncomment to use the solr recipe
 #require_recipe "solr"
