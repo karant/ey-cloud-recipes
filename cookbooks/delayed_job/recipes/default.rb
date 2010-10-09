@@ -10,6 +10,12 @@ if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:na
       message "configuring delayed_job"
     end
 
+    file "/data/#{app_name}/current/script/runner" do
+      owner node[:owner_name]
+      group node[:owner_name]
+      mode 0755
+    end
+
     # determine the number of workers to run based on instance size
     if node[:instance_role] == 'solo'
       worker_count = 1
