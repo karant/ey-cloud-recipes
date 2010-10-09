@@ -14,7 +14,10 @@
 # require_recipe "mbari-ruby"
 
 # uncomment to turn on thinking sphinx/ultra sphinx. Remember to edit cookbooks/sphinx/recipes/default.rb first!
-# require_recipe "sphinx"
+require_recipe "sphinx"
+
+# uncomment to turn on delayed_job
+require_recipe "delayed_job"
 
 #uncomment to turn on memcached
 # require_recipe "memcached"
@@ -52,7 +55,7 @@
 #uncomment to run the redis recipe
 #require_recipe "redis"
 
-#require_recipe "logrotate"
+require_recipe "logrotate"
 #
 #uncomment to use the solr recipe
 #require_recipe "solr"
