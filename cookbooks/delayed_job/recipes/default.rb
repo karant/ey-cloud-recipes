@@ -10,11 +10,13 @@ if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:na
       message "configuring delayed_job"
     end
 
-    # http://community.engineyard.com/discussions/problems/1485-delayed_job-worker-not-starting-permission-denied
-    file "/data/#{app_name}/current/script/runner" do
-      owner node[:owner_name]
-      group node[:owner_name]
-      mode 0755
+    if "test -d /data/#{app_name}/current/script"
+      # http://community.engineyard.com/discussions/problems/1485-delayed_job-worker-not-starting-permission-denied
+      file "/data/#{app_name}/current/script/runner" do
+        owner node[:owner_name]
+        group node[:owner_name]
+        mode 0755
+      end
     end
 
     # determine the number of workers to run based on instance size
