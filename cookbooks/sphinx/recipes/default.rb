@@ -98,6 +98,7 @@ if utility_name
         variables({
           :app_name => app_name,
           :user => node[:owner_name],
+	  :env => node[:environment][:framework_env],
           :flavor => flavor
         })
       end
@@ -198,6 +199,7 @@ else
         variables({
           :app_name => app_name,
           :user => node[:owner_name],
+	  :env => node[:environment][:framework_env],
           :flavor => flavor
         })
       end
