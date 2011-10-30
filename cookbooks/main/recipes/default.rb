@@ -8,7 +8,7 @@
 require_recipe "sphinx"
 
 # uncomment to turn on delayed_job
-require_recipe "delayed_job"
+#require_recipe "delayed_job"
 
 #uncomment to turn on memcached
 # require_recipe "memcached"
