@@ -4,7 +4,8 @@
 #
 
 # Set your application name here
-appname = "switchboard"
+appname = "talentbasin"
+
 
 # Uncomment the flavor of sphinx you want to use
 flavor = "thinking_sphinx"
@@ -16,6 +17,7 @@ flavor = "thinking_sphinx"
 # deploy may fail because the initial database migration will not have
 # run by the time this executes on the utility instance. If that occurs
 # just deploy again and the recipe should succeed.
+
 utility_name = nil
 # utility_name = "sphinx"
 
@@ -116,7 +118,7 @@ if utility_name
       end
 
       execute "sphinx config" do
-        command "rake #{flavor}:configure"
+        command "bundle exec rake #{flavor}:configure"
         user node[:owner_name]
         environment({
           'HOME' => "/home/#{node[:owner_name]}",
@@ -130,7 +132,7 @@ if utility_name
       end
 
       execute "#{flavor} index" do
-        command "rake #{flavor}:index"
+        command "bundle exec rake #{flavor}:index"
         user node[:owner_name]
         environment({
           'HOME' => "/home/#{node[:owner_name]}",
@@ -149,7 +151,7 @@ if utility_name
           day     '*'
           month   '*'
           weekday '*'
-          command "cd /data/#{app_name}/current && RAILS_ENV=#{node[:environment][:framework_env]} rake #{flavor}:index"
+          command "cd /data/#{app_name}/current && RAILS_ENV=#{node[:environment][:framework_env]} bundle exec rake #{flavor}:index"
           user node[:owner_name]
         end
       end
@@ -199,7 +201,7 @@ else
         variables({
           :app_name => app_name,
           :user => node[:owner_name],
-	  :env => node[:environment][:framework_env],
+          :env => node[:environment][:framework_env],
           :flavor => flavor
         })
       end
@@ -217,7 +219,7 @@ else
       end
 
       execute "sphinx config" do
-        command "rake #{flavor}:configure"
+        command "bundle exec rake #{flavor}:configure"
         user node[:owner_name]
         environment({
           'HOME' => "/home/#{node[:owner_name]}",
@@ -231,7 +233,7 @@ else
       end
 
       execute "#{flavor} index" do
-        command "rake #{flavor}:index"
+        command "bundle exec rake #{flavor}:index"
         user node[:owner_name]
         environment({
           'HOME' => "/home/#{node[:owner_name]}",
@@ -250,7 +252,7 @@ else
           day     '*'
           month   '*'
           weekday '*'
-          command "cd /data/#{app_name}/current && RAILS_ENV=#{node[:environment][:framework_env]} rake #{flavor}:index"
+          command "cd /data/#{app_name}/current && RAILS_ENV=#{node[:environment][:framework_env]} bundle exec rake #{flavor}:index"
           user node[:owner_name]
         end
       end
