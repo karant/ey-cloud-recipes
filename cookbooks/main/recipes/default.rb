@@ -20,7 +20,7 @@ require_recipe "delayed_job"
 #require_recipe "eybackup_slave"
 
 #uncomment to run the ssmtp recipe
-require_recipe "ssmtp"
+#require_recipe "ssmtp"
 
 #uncomment to run the sunspot recipe
 # require_recipe "sunspot"
