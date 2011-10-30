@@ -82,6 +82,10 @@ if utility_name
         group node[:owner_name]
         mode 0755
       end
+      
+      link "/data/#{app_name}/shared/config/sphinx" do
+        to "/data/#{app_name}/current/config/sphinx"
+      end      
 
       remote_file "/etc/logrotate.d/sphinx" do
         owner "root"
