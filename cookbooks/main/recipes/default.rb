@@ -8,7 +8,7 @@
 require_recipe "sphinx"
 
 # uncomment to create a bash profile (so that you can do things like rails console via ssh)
-require_recipe "bash"
+# require_recipe "bash" this does not work right now https://github.com/indirect/ey-cloud-recipes/tree/master/cookbooks/bash
 
 # uncomment to turn on delayed_job
 #require_recipe "delayed_job"
